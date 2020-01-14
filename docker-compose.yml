@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        STATIC_URL: '/static/'
+    restart: unless-stopped
+    networks:
+      - backend-tier
+    env_file: .env
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: library/postgres:11.1-alpine
+    restart: unless-stopped
+    networks:
+      - backend-tier
+    volumes:
+      - sweam-db:/var/lib/postgresql
+    environment:
+      - POSTGRES_USER=sweam
+      - POSTGRES_PASSWORD=sweam
+
+  redis:
+    image: library/redis:5.0-alpine
+    restart: unless-stopped
+    networks:
+      - backend-tier
+    volumes:
+      - sweam-redis:/data
+
+volumes:
+  sweam-db:
+    driver: local
+  sweam-redis:
+    driver: local
+
+networks:
+  backend-tier:
+    driver: bridge

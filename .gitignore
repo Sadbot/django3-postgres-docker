@@ -1,16 +1,59 @@
+# Distribution / packaging
+.Python build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
 .installed.cfg
-bin
-develop-eggs
-dist
-downloads
-eggs
-parts
-src/*.egg-info
+*.egg
+*.manifest
+*.spec
 lib
 lib64
 
-# Virtaul env
-venv
+#Django static
+__pycache__
+db.sqlite3
+media
+static
+!static/.gitkeep
+
+# Python #
+*.py[cod]
+*$py.class
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 #IDE
 .idea
