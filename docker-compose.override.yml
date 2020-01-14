@@ -10,7 +10,7 @@ services:
 #      - ./templates/:/app/templates:Z
       - ./tests/:/app/tests
       # prevents overshadowing of build-time assets
-      - /app/sweam/static/assets
+#      - /app/sweam/static/assets
       # shared volume between celery and web for media
       - saleor-media:/app/media
 

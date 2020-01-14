@@ -30,6 +30,5 @@ RUN SECRET_KEY=${SECRET_KEY} STATIC_URL=${STATIC_URL} python3 manage.py collects
 RUN chown -R sweam:sweam /app/
 
 EXPOSE 8000
-ENV PYTHONUNBUFFERED 1
 
 CMD ["uvicorn", "sweam.asgi:application"]

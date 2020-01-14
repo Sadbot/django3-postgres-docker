@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
       args:
         STATIC_URL: '/static/'
-    restart: unless-stopped
+    restart: always
     networks:
       - backend-tier
     env_file: .env
@@ -23,8 +23,9 @@ services:
     volumes:
       - sweam-db:/var/lib/postgresql
     environment:
-      - POSTGRES_USER=sweam
       - POSTGRES_PASSWORD=sweam
+      - POSTGRES_USER=sweam
+      - POSTGRES_DB=sweam
 
   redis:
     image: library/redis:5.0-alpine

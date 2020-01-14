@@ -1,3 +1,3 @@
-# Sweam
+# Django3
 
-eCommerce for digital production
+Boilerplate for django3
